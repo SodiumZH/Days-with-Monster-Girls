@@ -55,7 +55,7 @@ import net.sodiumstudio.befriendmobs.inventory.BefriendedInventory;
 import net.sodiumstudio.befriendmobs.inventory.BefriendedInventoryMenu;
 import net.sodiumstudio.befriendmobs.inventory.BefriendedInventoryWithHandItems;
 import net.sodiumstudio.befriendmobs.item.baublesystem.BaubleHandler;
-import net.sodiumstudio.befriendmobs.item.baublesystem.IBaubleEquipable;
+import net.sodiumstudio.befriendmobs.item.baublesystem.IBaubleHolder;
 import net.sodiumstudio.befriendmobs.registry.BMItems;
 import net.sodiumstudio.nautils.EntityHelper;
 import net.sodiumstudio.nautils.InfoHelper;
@@ -70,8 +70,8 @@ import net.sodiumstudio.dwmg.entities.ai.goals.DwmgBefriendedFlyingFollowOwnerGo
 import net.sodiumstudio.dwmg.entities.ai.goals.HmagFlyingGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToOwnerTargetGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToSelfTargetGoal;
+import net.sodiumstudio.dwmg.entities.item.baublesystem.DwmgBaubleHandlers;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuBanshee;
-import net.sodiumstudio.dwmg.registries.DwmgBaubleHandlers;
 import net.sodiumstudio.dwmg.registries.DwmgItems;
 import net.sodiumstudio.dwmg.util.DwmgEntityHelper;
 
@@ -110,7 +110,6 @@ public class HmagBansheeEntity extends BansheeEntity implements IDwmgBefriendedM
 			Arrays.fill(this.handDropChances, 0);
 		}
 
-		@Deprecated
 		public static Builder createAttributes() {
 			return Monster.createMonsterAttributes()
 					.add(Attributes.MAX_HEALTH, 40.0D)
@@ -322,19 +321,16 @@ public class HmagBansheeEntity extends BansheeEntity implements IDwmgBefriendedM
 		
 		@Override
 		public void aiStep() {
+			DwmgEntityHelper.setMobEquipmentWithoutSideEffect(this, EquipmentSlot.HEAD, this.isSunImmune() ? BMItems.DUMMY_ITEM.get().getDefaultInstance() : ItemStack.EMPTY);
+			super.aiStep();
+			applyAllyEffect();
 			if (!this.level.isClientSide)
 			{
-				DwmgEntityHelper.setMobEquipmentWithoutSideEffect(this, EquipmentSlot.HEAD, this.isSunImmune() ? BMItems.DUMMY_ITEM.get().getDefaultInstance() : ItemStack.EMPTY);
-				super.aiStep();
-				applyAllyEffect();
-				if (!this.level.isClientSide)
+				FlowerBlock flower = this.getFlowerOnOffhand();
+				if (flower != null && flower != lastFlower)
 				{
-					FlowerBlock flower = this.getFlowerOnOffhand();
-					if (flower != null && flower != lastFlower)
-					{
-						addEffectTimePoint = this.random.nextInt(allyEffectCooldown);
-						lastFlower = flower;
-					}
+					addEffectTimePoint = this.random.nextInt(allyEffectCooldown);
+					lastFlower = flower;
 				}
 			}
 		}
@@ -381,7 +377,7 @@ public class HmagBansheeEntity extends BansheeEntity implements IDwmgBefriendedM
 			return new InventoryMenuBanshee(containerId, playerInventory, container, this);
 		}
 
-		/* IBaubleEquipable interface */
+		/* IBaubleHolder interface */
 		
 
 		@Override
