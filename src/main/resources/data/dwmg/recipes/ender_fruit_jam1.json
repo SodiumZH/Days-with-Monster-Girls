@@ -6,27 +6,27 @@
 	  }, 
 	  
 	  {
-	    "item" : "minecraft:sweet_berries"
+	    "item" : "dwmg:enderberry"
 	  }, 
-	  	  
-	  {
-	    "item" : "minecraft:glow_berries"
-	  }, 
-	  	  
+	  
 	  {
 	    "tag" : "forge:foods/lemons"
 	  }, 
 	  
 	  {
-	    "tag" : "dwmg:ender_fruit_jam_optional_fruits"
+	    "item" : "minecraft:chorus_fruit"
 	  }, 
-
+	  
+	  {
+	    "tag" : "dwmg:hmag_berries"
+	  }, 
+	  
 	  {
 	    "item" : "hmag:cubic_nucleus"
 	  },
 	  
 	  { 
-	  	"item" : "minecraft:honey_bottle"
+	  	"item": "hmag:evil_crystal"
 	  },
 	    
 	  {
@@ -39,6 +39,6 @@
   ],
   "result" : {
     "item" : "dwmg:ender_fruit_jam",
-    "count" : 3
+    "count" : 2
   }
 }

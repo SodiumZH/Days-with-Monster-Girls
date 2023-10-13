@@ -1,35 +1,40 @@
 {
-	"type": "minecraft:crafting_shapeless",
-
-	"ingredients":[ 
-		{ 
+	"type": "minecraft:crafting_shaped",
+	
+	"pattern": 
+	[ 
+	"SNS",
+	"ADA",
+	"BPB"	
+	],
+	
+	"key":{ 
+	
+		"S":{
+		"item": "hmag:necrofiber"
+		},
+		
+		"D":{ 
 		"tag": "forge:gems/diamond"
 		},
-		{ 
+		
+		"A":{ 
+		"item": "hmag:lich_cloth"
+		},
+		
+		"P":{ 
+		"item": "hmag:lightning_particle"
+		},
+
+		"B":{ 
 		"tag": "dwmg:death_crystal_ingredients"
 		},
-		{ 
-		"item": "minecraft:amethyst_shard"
-		},
-		{ 
-		"item": "minecraft:amethyst_shard"
-		},
-		{
-		"item": "hmag:necrofiber"
-		},
-		{
-		"item": "hmag:necrofiber"
-		},
-		{ 
-		"item": "hmag:lich_cloth"
-		},
-		{ 
-		"item": "hmag:lich_cloth"
-		},
-		{ 
-		"item": "hmag:lightning_particle"
+		
+		"N":{ 
+		"tag": "forge:nuggets/nether_star"
 		}
-	],
+		
+	},
 	
 	"result":{ 
 		"item": "dwmg:death_crystal",

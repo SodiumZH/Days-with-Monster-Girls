@@ -3,7 +3,6 @@
   "values" : [ 
       "minecraft:netherite_scrap",
 	  "hmag:evil_crystal",
-	  "hmag:ancient_stone",
-	  "hmag:burning_core"
+	  "hmag:ancient_stone_block"
   ]
 }
