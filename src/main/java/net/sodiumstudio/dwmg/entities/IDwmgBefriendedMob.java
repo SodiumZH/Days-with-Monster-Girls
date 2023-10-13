@@ -1,15 +1,13 @@
 package net.sodiumstudio.dwmg.entities;
 
 
-import java.util.HashMap;
-
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 import net.sodiumstudio.befriendmobs.entity.befriended.IBefriendedMob;
 import net.sodiumstudio.befriendmobs.item.MobRespawnerItem;
-import net.sodiumstudio.befriendmobs.item.baublesystem.IBaubleEquipable;
+import net.sodiumstudio.befriendmobs.item.baublesystem.IBaubleHolder;
 import net.sodiumstudio.nautils.Wrapped;
 import net.sodiumstudio.nautils.annotation.DontCallManually;
 import net.sodiumstudio.nautils.annotation.DontOverride;
@@ -19,7 +17,7 @@ import net.sodiumstudio.dwmg.entities.item.baublesystem.DwmgBaubleItem;
 import net.sodiumstudio.dwmg.registries.DwmgCapabilities;
 import net.sodiumstudio.dwmg.registries.DwmgItems;
 
-public interface IDwmgBefriendedMob extends IBefriendedMob, IBaubleEquipable
+public interface IDwmgBefriendedMob extends IBefriendedMob, IBaubleHolder
 {
 	
 	@DontOverride
@@ -123,19 +121,4 @@ public interface IDwmgBefriendedMob extends IBefriendedMob, IBaubleEquipable
 	{
 		return DeathRespawnerGenerationType.GIVE;
 	}
-	
-	// ===== Util ===
-	
-	public default HashMap<String, ItemStack> continuousBaubleSlots(int startIndex, int endIndexExclude)
-	{
-		HashMap<String, ItemStack> map = new HashMap<>();
-		int j = 0;
-		for (int i = startIndex; i < endIndexExclude; ++i)
-		{
-			map.put(Integer.toString(j), this.getAdditionalInventory().getItem(i));
-			j++;
-		}
-		return map;
-	}
-	
 }
