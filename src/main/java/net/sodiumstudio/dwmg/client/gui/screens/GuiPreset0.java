@@ -23,9 +23,6 @@ import net.sodiumstudio.dwmg.entities.IDwmgBefriendedMob;
 @OnlyIn(Dist.CLIENT)
 public class GuiPreset0 extends BefriendedGuiScreen {
 	
-	protected int mobRenderScale = 25;
-	protected MobRenderBoxStyle mobRenderBoxStyle = MobRenderBoxStyle.DARK;
-	
 	@Override
 	public ResourceLocation getTextureLocation() {
 		return new ResourceLocation(Dwmg.MOD_ID,
@@ -58,19 +55,7 @@ public class GuiPreset0 extends BefriendedGuiScreen {
 	
 	public int getMobRenderScale()
 	{
-		return mobRenderScale;
-	}
-	
-	public GuiPreset0 setMobRenderScale(int value)
-	{
-		mobRenderScale = value;
-		return this;
-	}
-	
-	public GuiPreset0 setMobRenderBoxStyle(MobRenderBoxStyle style)
-	{
-		this.mobRenderBoxStyle = style;
-		return this;
+		return 25;
 	}
 	
 	@Override
@@ -199,15 +184,9 @@ public class GuiPreset0 extends BefriendedGuiScreen {
 		this.addSlotBg(poseStack, slotIndex, pos, 1, 2);
 	}
 	
-	@Deprecated
 	public void addMobRenderBox(PoseStack poseStack, int variation)
 	{
 		this.blit(poseStack, absPos(27, 17), IntVec2.valueOf(120 + variation * 50, 183), IntVec2.valueOf(50, 72));
-	}
-	
-	public void addMobRenderBox(PoseStack poseStack)
-	{
-		this.blit(poseStack, absPos(27, 17), IntVec2.valueOf(120 + this.mobRenderBoxStyle.getIndex() * 50, 183), IntVec2.valueOf(50, 72));
 	}
 	
 	public void addInfoBox(PoseStack poseStack)
@@ -231,23 +210,5 @@ public class GuiPreset0 extends BefriendedGuiScreen {
 	{
 		renderMob(IntVec2.valueOf(0));
 	}
-	
-	public static enum MobRenderBoxStyle
-	{
-		LIGHT(0),
-		NORMAL(1),
-		DARK(2);
-		private int index;
-		private MobRenderBoxStyle(int index)
-		{
-			this.index = index;
-		}
-		public int getIndex()
-		{
-			return index;
-		}
-		
-	}
-	
 }
 

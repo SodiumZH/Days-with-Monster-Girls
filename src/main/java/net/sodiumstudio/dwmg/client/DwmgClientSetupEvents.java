@@ -3,7 +3,6 @@ package net.sodiumstudio.dwmg.client;
 import com.github.mechalopa.hmag.client.renderer.AlrauneRenderer;
 import com.github.mechalopa.hmag.client.renderer.BansheeRenderer;
 import com.github.mechalopa.hmag.client.renderer.CrimsonSlaughtererRenderer;
-import com.github.mechalopa.hmag.client.renderer.CursedDollRenderer;
 import com.github.mechalopa.hmag.client.renderer.DodomekiRenderer;
 import com.github.mechalopa.hmag.client.renderer.DrownedGirlRenderer;
 import com.github.mechalopa.hmag.client.renderer.DullahanRenderer;
@@ -47,7 +46,6 @@ import net.sodiumstudio.dwmg.client.gui.screens.GuiEnderExecutor;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiEquipmentTwoBaubles;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiFourBaubles;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiGhastlySeeker;
-import net.sodiumstudio.dwmg.client.gui.screens.GuiHandItemsSixBaubles;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiHandItemsTwoBaubles;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiImp;
 import net.sodiumstudio.dwmg.client.gui.screens.GuiKobold;
@@ -61,8 +59,7 @@ import net.sodiumstudio.dwmg.client.renderer.BefriendedEnderExecutorRenderer;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuBanshee;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuCreeper;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuDodomeki;
-import net.sodiumstudio.dwmg.inventory.InventoryMenuHandItemsFourBaublesDefault;
-import net.sodiumstudio.dwmg.inventory.InventoryMenuHandItemsSixBaubles;
+import net.sodiumstudio.dwmg.inventory.InventoryMenuDullahan;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuEnderExecutor;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuEquipmentTwoBaubles;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuFourBaubles;
@@ -113,7 +110,6 @@ public class DwmgClientSetupEvents
         event.registerEntityRenderer(DwmgEntityTypes.HMAG_ALRAUNE.get(), AlrauneRenderer::new);
         event.registerEntityRenderer(DwmgEntityTypes.HMAG_GLARYAD.get(), GlaryadRenderer::new);
         event.registerEntityRenderer(DwmgEntityTypes.HMAG_CRIMSON_SLAUGHTERER.get(), CrimsonSlaughtererRenderer::new);
-        event.registerEntityRenderer(DwmgEntityTypes.HMAG_CURSED_DOLL.get(), CursedDollRenderer::new);
         
         event.registerEntityRenderer(DwmgEntityTypes.NECROMANCER_MAGIC_BULLET.get(), MagicBulletRenderer::new); 
         event.registerEntityRenderer(DwmgEntityTypes.BEFRIENDED_GHAST_FIREBALL.get(), c -> new ThrownItemRenderer<>(c, 3.0F, true));
@@ -153,11 +149,10 @@ public class DwmgClientSetupEvents
 		event.registerDefault(InventoryMenuImp.class, GuiImp::new);
 		event.registerDefault(InventoryMenuFourBaubles.class, GuiFourBaubles::new);
 		event.registerDefault(InventoryMenuSlimeGirl.class, GuiSlimeGirl::new);
-		event.registerDefault(InventoryMenuHandItemsFourBaublesDefault.class, GuiDullahan::new);
+		event.registerDefault(InventoryMenuDullahan.class, GuiDullahan::new);
 		event.registerDefault(InventoryMenuDodomeki.class, GuiDodomeki::new);
 		event.registerDefault(InventoryMenuThreeBaubles.class, GuiThreeBaubles::new);
 		event.registerDefault(InventoryMenuSixBaubles.class, GuiSixBaubles::new);
-		event.registerDefault(InventoryMenuHandItemsSixBaubles.class, GuiHandItemsSixBaubles::new);
     }
 
 }

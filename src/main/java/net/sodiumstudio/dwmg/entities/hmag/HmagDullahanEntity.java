@@ -50,7 +50,7 @@ import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgBefriendedOwnerHurtByT
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgBefriendedOwnerHurtTargetGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToOwnerTargetGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToSelfTargetGoal;
-import net.sodiumstudio.dwmg.inventory.InventoryMenuHandItemsFourBaublesDefault;
+import net.sodiumstudio.dwmg.inventory.InventoryMenuDullahan;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuHandItemsFourBaubles;
 import net.sodiumstudio.dwmg.registries.DwmgBaubleHandlers;
 import net.sodiumstudio.dwmg.registries.DwmgItems;
@@ -227,7 +227,7 @@ public class HmagDullahanEntity extends DullahanEntity implements IDwmgBefriende
 
 	@Override
 	public BefriendedInventoryMenu makeMenu(int containerId, Inventory playerInventory, Container container) {
-		return new InventoryMenuHandItemsFourBaublesDefault(containerId, playerInventory, container, this);
+		return new InventoryMenuDullahan(containerId, playerInventory, container, this);
 	}
 
 	/* Save and Load */

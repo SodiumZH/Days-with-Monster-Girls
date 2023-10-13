@@ -3,9 +3,9 @@
 	
 	"pattern": 
 	[ 
-	"EEE",
-	" S ",
-	" S "	
+	"E",
+	"S",
+	"S"	
 	],
 	
 	"key":{ 
@@ -15,7 +15,7 @@
 		},
 		
 		"E":{ 
-		"item": "hmag:evil_crystal_fragment"
+		"item": "hmag:evil_crystal"
 		}		
 	},
 	

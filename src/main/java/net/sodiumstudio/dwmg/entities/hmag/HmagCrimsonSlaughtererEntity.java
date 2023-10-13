@@ -46,7 +46,6 @@ import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgBefriendedOwnerHurtByT
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgBefriendedOwnerHurtTargetGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToOwnerTargetGoal;
 import net.sodiumstudio.dwmg.entities.ai.goals.target.DwmgNearestHostileToSelfTargetGoal;
-import net.sodiumstudio.dwmg.inventory.InventoryMenuFourBaubles;
 import net.sodiumstudio.dwmg.inventory.InventoryMenuSixBaubles;
 import net.sodiumstudio.dwmg.registries.DwmgBaubleHandlers;
 import net.sodiumstudio.dwmg.registries.DwmgItems;
@@ -226,7 +225,7 @@ public class HmagCrimsonSlaughtererEntity extends CrimsonSlaughtererEntity imple
 	@Override
 	public int getInventorySize()
 	{
-		return 4;
+		return 6;
 	}
 
 	@Override
@@ -247,7 +246,7 @@ public class HmagCrimsonSlaughtererEntity extends CrimsonSlaughtererEntity imple
 
 	@Override
 	public BefriendedInventoryMenu makeMenu(int containerId, Inventory playerInventory, Container container) {
-		return new InventoryMenuFourBaubles(containerId, playerInventory, container, this);	
+		return new InventoryMenuSixBaubles(containerId, playerInventory, container, this);	
 	}
 
 	/* Save and Load */
@@ -269,7 +268,7 @@ public class HmagCrimsonSlaughtererEntity extends CrimsonSlaughtererEntity imple
 
 	@Override
 	public HashMap<String, ItemStack> getBaubleSlots() {
-		return continuousBaubleSlots(0, 4);
+		return continuousBaubleSlots(0, 6);
 	}
 
 	@Override
